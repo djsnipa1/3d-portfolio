@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "start": "parcel index.html --port 5001 --open --scripts-prepend-node-path",
+    "start": "parcel index.html --port 5001 --open",
     "build": "parcel build index.html"
   },
   "dependencies": {
