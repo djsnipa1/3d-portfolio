@@ -5,6 +5,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 const scene = new THREE.Scene();
 
+
+
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
@@ -46,6 +48,11 @@ function addStar() {
 }
 
 Array(200).fill().forEach(addStar)
+
+const space_bg = require('../static/space_bg.jpg');
+
+const spaceTexture = new THREE.TextureLoader().load(space_bg);
+scene.background = spaceTexture;
 
 function animate() {
   requestAnimationFrame( animate );
