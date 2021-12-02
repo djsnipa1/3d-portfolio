@@ -1,32 +1,28 @@
-name: Deploy to gh-pages
+# This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: deploy to gh-pages
 
 on:
   push:
-    branches:
-      - master
-  workflow_dispatch:
+    branches: [ main ]
 
 jobs:
-  gh-pages-deploy:
-    name: Deploying to gh-pages
-    runs-on: ubuntu-latest # or macos-latest/windows-latest
+  build:
+
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Setup Node.js for use with actions
-        uses: actions/setup-node@v1.1.0
-        with:
-          version:  16.8 # see https://github.com/actions/setup-node#supported-version-syntax for supported versions
-       
-      - name: Checkout branch
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build
 
-      - name: Clean install dependencies
-        run: npm ci # or yarn install --frozen-lockfile for yarn
-        # if the above doesn't work, use npm i or yarn
-
-      - name: Build app
-        run: npm run build
-
-      - name: deploy
+    - name: deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.ACCESS_TOKEN }}
