@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "npm": "^8.1.4",
     "parcel-bundler": "^1.6.1",
     "three": "0.134.0"
   },
