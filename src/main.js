@@ -69,10 +69,8 @@ scene.add(chad);
 
 const moonTextureImage = require("../static/moon.jpg");
 const moonBumpmapImage = require("../static/moon_map.jpg");
-const moonNormalImage = require("../static/normal.jpg");
 const moonTexture = new THREE.TextureLoader().load(moonTextureImage);
 const moonBumomap = new THREE.TextureLoader().load(moonBumpmapImage);
-const moonNormal = new THREE.TextureLoader().load(moonNormalImage);
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
@@ -82,22 +80,13 @@ const moon = new THREE.Mesh(
   })
 );
 
-const moon2 = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
-  new THREE.MeshStandardMaterial({
-    map: moonTexture,
-    normalMap: moonNormal,
-  })
-);
-moon2.position.z = -10;
-torus.position.x = 20;
-scene.add(moon, moon2);
+scene.add(moon);
 
 function animate() {
   requestAnimationFrame(animate);
 
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
+  torus.rotation.x += 0.09;
+  torus.rotation.y += 0.06;
   torus.rotation.z += 0.01;
 
   controls.update();
