@@ -61,7 +61,7 @@ const chadTexture = new THREE.TextureLoader().load(
 );
 
 const chad = new THREE.Mesh(
-  new THREE.BoxGeometry(3, 3, 3),
+  new THREE.BoxGeometry(5,5,5),
   new THREE.MeshBasicMaterial({ map: chadTexture })
 );
 
@@ -73,13 +73,16 @@ const moonTexture = new THREE.TextureLoader().load(moonTextureImage);
 const moonBumomap = new THREE.TextureLoader().load(moonBumpmapImage);
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.SphereGeometry(10, 32, 32),
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     bumpMap: moonBumomap,
   })
 );
 
+moon.position.x = -15;
+moon.position.z = -20;
+moon.position.y = 5;
 scene.add(moon);
 
 function animate() {
@@ -88,6 +91,10 @@ function animate() {
   torus.rotation.x += 0.09;
   torus.rotation.y += 0.06;
   torus.rotation.z += 0.01;
+
+  chad.rotation.y += 0.02;
+  chad.rotation.x += 0.02;
+  moon.rotation.y += 0.02;
 
   controls.update();
 
