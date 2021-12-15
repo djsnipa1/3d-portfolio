@@ -1,6 +1,8 @@
 import "./styles.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import {GUI} from "dat.gui";
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
@@ -84,6 +86,16 @@ moon.position.x = -15;
 moon.position.z = -20;
 moon.position.y = 5;
 scene.add(moon);
+
+const gui = new GUI();
+const chadFolder = gui.addFolder('chad')
+chadFolder.add(chad.rotation, 'x', 0, Math.PI * 2)
+chadFolder.add(chad.rotation, 'y', 0, Math.PI * 2)
+chadFolder.add(chad.rotation, 'z', 0, Math.PI * 2)
+chadFolder.open()
+const cameraFolder = gui.addFolder('camera')
+cameraFolder.add(camera.position, 'z', 0, 20)
+cameraFolder.open()
 
 function animate() {
   requestAnimationFrame(animate);
