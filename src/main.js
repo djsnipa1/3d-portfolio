@@ -1,7 +1,7 @@
 import "./styles.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import {GUI} from "dat.gui";
+import { GUI } from "dat.gui";
 
 const scene = new THREE.Scene();
 
@@ -63,7 +63,7 @@ const chadTexture = new THREE.TextureLoader().load(
 );
 
 const chad = new THREE.Mesh(
-  new THREE.BoxGeometry(5,5,5),
+  new THREE.BoxGeometry(5, 5, 5),
   new THREE.MeshBasicMaterial({ map: chadTexture })
 );
 
@@ -88,14 +88,18 @@ moon.position.y = 5;
 scene.add(moon);
 
 const gui = new GUI();
-const chadFolder = gui.addFolder('chad')
-chadFolder.add(chad.rotation, 'x', 0, Math.PI * 2)
-chadFolder.add(chad.rotation, 'y', 0, Math.PI * 2)
-chadFolder.add(chad.rotation, 'z', 0, Math.PI * 2)
-chadFolder.open()
-const cameraFolder = gui.addFolder('camera')
-cameraFolder.add(camera.position, 'z', 0, 20)
-cameraFolder.open()
+const chadFolder = gui.addFolder("chad");
+chadFolder.add(chad.rotation, "x", 0, Math.PI * 2);
+chadFolder.add(chad.rotation, "y", 0, Math.PI * 2);
+chadFolder.add(chad.rotation, "z", 0, Math.PI * 2);
+chadFolder.open();
+const cameraFolder = gui.addFolder("camera");
+cameraFolder.add(camera.position, "z", 0, 20);
+
+var axis = new THREE.Vector3(1, 0, 1).normalize();
+var speed = 0.01;
+
+//const axisFolder = gui,addFolder("axis");
 
 function animate() {
   requestAnimationFrame(animate);
@@ -104,9 +108,11 @@ function animate() {
   torus.rotation.y += 0.06;
   torus.rotation.z += 0.01;
 
-  chad.rotation.y += 0.02;
-  chad.rotation.x += 0.02;
-  moon.rotation.y += 0.02;
+  moon.rotateOnAxis(axis, speed);
+  chad.rotateOnAxis(axis, speed);
+  // chad.rotation.y += 0.02;
+  // chad.rotation.x += 0.02;
+  // moon.rotation.y += 0.02;
 
   controls.update();
 
