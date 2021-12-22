@@ -1,1 +1,0 @@
-{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,KACE,sBACF,CAEA,OACE,cAAe,CACf,KAAM,CACN,MACF,CAEA,GACE,eACF","file":"main.ca64f12b.css","sourceRoot":"..","sourcesContent":["body {\n  font-family: sans-serif;\n}\n\ncanvas {\n  position: fixed;\n  top: 0;\n  left: 0;\n}\n\nbg {\n  background: #000;\n}\n"]}
