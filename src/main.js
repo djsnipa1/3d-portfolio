@@ -5,14 +5,15 @@ import { GUI } from "dat.gui";
 
 /**
 * Creates a new scene
-* @const {object}
+* @const {Object}
 */
 const scene = new THREE.Scene();
 
 
 /**
 * Creates a new camera
-* @const {object}
+* @const
+* @type {Object.<number, number, number, number>}
 */
 const camera = new THREE.PerspectiveCamera(
   75,
