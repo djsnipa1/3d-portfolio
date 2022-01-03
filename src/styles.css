@@ -1,14 +1,14 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
-canvas {
+canvas#bg {
   position: fixed;
   top: 0;
   left: 0;
 }
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.95);
-  --spacing: 350px;
+  --dark-bg: rgba(15, 15, 15, 0.5);
+  --spacing: 35px;
 
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
@@ -77,4 +77,11 @@ blockquote p {
 
 .left {
   grid-column: 6 / 12;
+}
+
+canvas#div-test {
+  grid-column: 9/12;
+  position: fixed;
+  top: 40px;
+  right: 40px;
 }
