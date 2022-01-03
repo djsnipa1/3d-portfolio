@@ -7,8 +7,8 @@ canvas#bg {
 }
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.95);
-  --spacing: 350px;
+  --dark-bg: rgba(15, 15, 15, 0.5);
+  --spacing: 35px;
 
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
