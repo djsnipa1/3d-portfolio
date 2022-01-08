@@ -21,7 +21,6 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 camera.position.setX(-3);
 
-
 const geometry = new THREE.TorusGeometry(8, 2, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
 const torus = new THREE.Mesh(geometry, material);
@@ -118,12 +117,12 @@ function moveCamera() {
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
 
-  chad.rotation.y += 0.03;
-  chad.rotation.z += 0.03;
-  
+  chad.rotation.x += 0.02;
+  chad.rotation.y += 0.01;
+
   torus.rotation.y += 0.05;
   /*camera.position.z = t * 0.01;*/
-  
+
   camera.position.z = t * 0.01 + 20;
   camera.position.y = t * 0.0002;
   camera.position.x = t * 0.0002;
@@ -135,16 +134,16 @@ moveCamera();
 function animate() {
   requestAnimationFrame(animate);
 
-  torus.rotation.x += 0.0025;
-  torus.rotation.y += 0.005;
-//  torus.rotation.z += 0.006;
+  torus.rotation.x += 0.025;
+  torus.rotation.y += 0.02;
+  //  torus.rotation.z += 0.006;
 
   moon.rotation.x += 0.01;
 
   // moon.rotateOnAxis(axis, speed);
   // chad.rotateOnAxis(axis, speed);
   chad.rotation.y += 0.02;
-  chad.rotation.x += 0.001;
+  //chad.rotation.x += 0.007;
 
   // controls.update();
 
