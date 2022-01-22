@@ -1,4 +1,5 @@
 @import url("https://use.typekit.net/jmk3xov.css");
+@import url("https://use.typekit.net/ppz6snd.css");
 
 canvas#bg {
   position: fixed;
@@ -6,11 +7,24 @@ canvas#bg {
   left: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Sans") format("woff"),
+    url("https://fonts.googleapis.com/css2?family=Noto+Sans") format("truetype");
+}
+
 :root {
   --dark-bg: rgba(15, 15, 15, 0.5);
   --spacing: 35px;
-
-  font-family: brandon-grotesque, sans-serif;
+  --font-family: "Noto Sans", brandon-grotesque, sans-serif;
+  --font-family-heading: normal 500 1.5rem orbitron;
   font-weight: 400;
   font-style: normal;
 }
@@ -32,7 +46,7 @@ h1,
 h2,
 h3,
 blockquote {
-  font-family: elevon, sans-serif;
+  font-family: orbitron, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
