@@ -12,6 +12,14 @@ const camera = new THREE.PerspectiveCamera(
   1000
 );
 
+// Use for three.js developer tools extension
+// Observe a scene or a renderer
+if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
+  __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: scene }));
+  __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: renderer }));
+}
+
+// Creates a scene renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
 });
