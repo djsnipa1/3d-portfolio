@@ -14,11 +14,11 @@ const camera = new THREE.PerspectiveCamera(
 
 // Use for three.js developer tools extension
 // Observe a scene or a renderer
-if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
+/*if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
   __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: scene }));
   __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: renderer }));
 }
-
+*/
 // Creates a scene renderer
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),
@@ -42,9 +42,11 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
 // Helpers
-// const lightHelper = new THREE.PointLightHelper(pointLight);
-// const gridHelper = new THREE.GridHelper(200, 50);
-// scene.add(lightHelper, gridHelper);
+const lightHelper = new THREE.PointLightHelper(pointLight);
+ const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(lightHelper, gridHelper);
+
+gridHelper.rotation.x = 180
 
 // const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -121,14 +123,17 @@ scene.add(moon);
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
 
-  moon.rotation.x += 0.05;
-  moon.rotation.y += 0.075;
-  moon.rotation.z += 0.05;
+  //moon.rotation.x += 0.05;
+  //moon.rotation.y += 0.075;
+  //moon.rotation.z += 0.05;
 
-  chad.rotation.x += 0.02;
-  chad.rotation.y += 0.01;
+  //chad.rotation.x += 0.02;
+  //chad.rotation.y += 0.01;
 
-  torus.rotation.y += 0.05;
+  //torus.rotation.y += 0.05;
+  torus.position.x = t * -0.02;
+  //torus.size = t * 0.2
+  torus.position.z = t * 0.02;
   /*camera.position.z = t * 0.01;*/
 
   camera.position.z = t * 0.01 + 20;
