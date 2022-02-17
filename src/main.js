@@ -191,3 +191,9 @@ function animate() {
 }
 
 animate();
+
+// Observe a scene or a renderer
+if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
+  __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: scene }));
+  __THREE_DEVTOOLS__.dispatchEvent(new CustomEvent('observe', { detail: renderer }));
+}
