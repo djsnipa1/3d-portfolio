@@ -1,7 +1,4 @@
 import "./styles.css"; 
-//import 'simpledotcss/simple.min.css';
-import "~/node_modules/simpledotcss/simple.min.css"
-//@import 'npm:simpledotcss/simple.min.css'
 
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
