@@ -1,4 +1,8 @@
-import "./styles.css";
+import "./styles.css"; 
+//import 'simpledotcss/simple.min.css';
+import "~/node_modules/simpledotcss/simple.min.css"
+//@import 'npm:simpledotcss/simple.min.css'
+
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GUI } from "dat.gui";
@@ -65,14 +69,13 @@ function addStar() {
 
 Array(500).fill().forEach(addStar);
 
-const space_bg = require("../static/space_bg.jpg");
+const space_bg = require("../static/new_space.jpg");
 
 const spaceTexture = new THREE.TextureLoader().load(space_bg);
 scene.background = spaceTexture;
 
-const chadTexture = new THREE.TextureLoader().load(
-  "https://avatars.githubusercontent.com/u/118037?v=4"
-);
+const chadImage = require("../static/chad.jpg");
+const chadTexture = new THREE.TextureLoader().load(chadImage);
 
 const chad = new THREE.Mesh(
   new THREE.BoxGeometry(3, 3, 3),
@@ -87,13 +90,34 @@ const moonTexture = new THREE.TextureLoader().load(moonTextureImage);
 const moonBumomap = new THREE.TextureLoader().load(moonBumpmapImage);
 
 const moon = new THREE.Mesh(
-  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.SphereGeometry(8, 32, 32),
   new THREE.MeshStandardMaterial({
     map: moonTexture,
     bumpMap: moonBumomap,
   })
 );
+ 
+// New moon
 
+const moonTextureImage2 = require("../static/lunar_surface.jpg");
+const moonBumpmapImage2 = require("../static/lunar_bumpmap.jpg");
+const moonTexture2 = new THREE.TextureLoader().load(moonTextureImage2);
+const moonBumpmap2 = new THREE.TextureLoader().load(moonBumpmapImage2);
+
+const moon2 = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture2,
+    bumpMap: moonBumpmap2,
+  })
+);
+
+moon2.position.x = 10;
+moon2.position.z = -20;
+moon2.position.y = 5;
+scene.add(moon2);
+
+// Chad
 chad.position.z = -10;
 chad.position.x = 5;
 
@@ -104,6 +128,8 @@ moon.position.x = -10;
 moon.position.z = -20;
 moon.position.y = 5;
 scene.add(moon);
+
+
 
 // const gui = new GUI();
 // const chadFolder = gui.addFolder("chad");
@@ -152,6 +178,7 @@ function animate() {
   //  torus.rotation.z += 0.006;
 
   moon.rotation.x += 0.01;
+  moon2.rotation.x += 0.01;
 
   // moon.rotateOnAxis(axis, speed);
   // chad.rotateOnAxis(axis, speed);

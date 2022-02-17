@@ -7,6 +7,11 @@
   --ff-accent: Bungee Shade, 'Blogger Sans', serif;
 }
 
+canvas#b {
+  margin: 0;
+  padding: 0;
+}
+
 /* Box sizing rules */
 *,
 *::before,
