@@ -28,4 +28,5 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
+        external_repository: djsnipa1/djsnipa1.github.io
         publish_dir: ./dist
